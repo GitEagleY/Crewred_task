@@ -6,9 +6,17 @@ from .database import engine, Base, get_db
 from .models import TravelProject, ProjectPlace
 from .schemas import ProjectCreate, ProjectUpdate, ProjectResponse
 from .places import router as places_router
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="Travel Planner System")
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.on_event("startup")
 async def on_startup():
