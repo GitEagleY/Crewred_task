@@ -1,5 +1,5 @@
 # Travel Planner System
-
+![Screenshot](images/thumbnail.png)
 ## Features
 
 - Create travel projects
@@ -23,55 +23,70 @@
 
 ## Tech Stack
 
-- **Framework**: FastAPI 0.109
-- **Database**: SQLAlchemy 2.0 + SQLite + aiosqlite
-- **Async**: asyncio with async/await
-- **HTTP Client**: httpx
-- **Validation**: Pydantic 2.5
-- **Package Manager**: uv
-- **Containerization**: Docker & Docker Compose
+* **Frontend**: React 18, TypeScript, Vite, CSS3
+* **Framework**: FastAPI 0.109
+* **Database**: SQLAlchemy 2.0 + SQLite + aiosqlite
+* **Async**: asyncio with async/await
+* **HTTP Client**: httpx
+* **Validation**: Pydantic 2.5
+* **Package Manager**: uv (Backend) & npm (Frontend)
+* **Containerization**: Docker & Docker Compose
 
 ## Quick Start
 
-
 ### Prerequisites
-- Python 3.10+
-- uv package manager ([install](https://docs.astral.sh/uv/))
-- Docker & Docker Compose (optional)
+
+* Python 3.10+
+* Node.js & npm
+* uv package manager ([install](https://docs.astral.sh/uv/))
+* Docker & Docker Compose (optional)
 
 ### Local Development
 
 1. **Clone and setup**
+
 ```bash
 git clone https://github.com/GitEagleY/Crewred_task.git
 cd travel-planner
 uv sync
+
 ```
 
-2. **Run the server**
+2. **Run the Backend server**
+
 ```bash
 uv run uvicorn app.main:app --reload
+
 ```
 
-3. **Access API**
-- Swagger UI: `http://localhost:8000/docs`
-- ReDoc: `http://localhost:8000/redoc`
+3. **Run the Frontend server**
+
+```bash
+cd travel-planner-frontend
+npm install
+npm run dev
+
+```
 
 ### Docker
 
 1. **Build and run**
+
 ```bash
 docker-compose up --build
+
 ```
 
-2. **Access API**
-```
-http://localhost:8000/docs
-```
+2. **Access the System**
+
+* **Frontend Dashboard**: `http://localhost:5173`
+* **Backend API Docs**: `http://localhost:8000/docs`
 
 3. **Stop**
+
 ```bash
 docker-compose down
+
 ```
 
 ## API Endpoints
@@ -79,7 +94,7 @@ docker-compose down
 ### Projects
 
 | Method | Endpoint | Description |
-|--------|----------|-------------|
+| --- | --- | --- |
 | `POST` | `/projects` | Create project |
 | `GET` | `/projects` | List all projects |
 | `GET` | `/projects/{id}` | Get single project |
@@ -89,30 +104,27 @@ docker-compose down
 ### Places
 
 | Method | Endpoint | Description |
-|--------|----------|-------------|
+| --- | --- | --- |
 | `POST` | `/projects/{id}/places` | Add place to project |
 | `GET` | `/projects/{id}/places` | List places in project |
 | `GET` | `/projects/{id}/places/{place_id}` | Get single place |
 | `PATCH` | `/projects/{id}/places/{place_id}` | Update place notes/status |
 | `DELETE` | `/projects/{id}/places/{place_id}` | Remove place |
 
-
-
 ## Environment Variables
 
 | Variable | Default | Description |
-|----------|---------|-------------|
+| --- | --- | --- |
 | DATABASE_URL | sqlite+aiosqlite:///./travel.db | Database connection string |
+| VITE_API_URL | http://localhost:8000 | Backend URL for frontend |
 | LOG_LEVEL | info | Logging level |
-
 
 ## API Documentation
 
 ### Interactive Docs
 
-- **Swagger UI**: http://localhost:8000/docs
-- **ReDoc**: http://localhost:8000/redoc
-
+* **Swagger UI**: http://localhost:8000/docs
+* **ReDoc**: http://localhost:8000/redoc
 
 ## Example Requests
 
@@ -188,7 +200,7 @@ curl http://localhost:8000/projects/1/places
 
 ## Requirements Fulfillment
 
-### Backend Requirements 
+### Backend Requirements
 
 #### Travel Projects
 - Create travel projects with Name, Description (optional), Start Date (optional)
@@ -211,10 +223,10 @@ curl http://localhost:8000/projects/1/places
 
 ## Bonus
 
-- Docker & docker-compose configuration
-- Clean project structure
-- Meaningful commit history
-- Async/await throughout
-- Proper error handling
-- Input validation with Pydantic
-
+* **Full Stack Integration**: Real-time React dashboard with TypeScript.
+* Docker & docker-compose configuration
+* Clean project structure
+* Meaningful commit history
+* Async/await throughout
+* Proper error handling
+* Input validation with Pydantic
